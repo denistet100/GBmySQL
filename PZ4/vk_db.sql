@@ -22,8 +22,7 @@ CREATE TABLE profiles (
   status VARCHAR(30) COMMENT "Текущий статус",
   city VARCHAR(130) COMMENT "Город проживания",
   country VARCHAR(130) COMMENT "Страна проживания",
-  -- likes_id INT UNSIGNED DEFAULT (0) COMMENT "Последний номер id таблицы лайков пользователей",
-  like_user_count = ( SELECT COUNT(likes_user.id) FROM likes_user WHERE user.id = likes_user.user_id ),
+  -- like_user_count = ( SELECT COUNT(likes_user.id) FROM likes_user WHERE user.id = likes_user.user_id ),
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
 ) COMMENT "Профили"; 
@@ -84,8 +83,7 @@ CREATE TABLE media (
   size INT NOT NULL COMMENT "Размер файла",
   metadata JSON COMMENT "Метаданные файла",
   media_type_id INT UNSIGNED NOT NULL COMMENT "Ссылка на тип контента",
-  -- likes_id INT UNSIGNED DEFAULT (0) COMMENT "Последний номер id таблицы лайков медиафайлов",
-  like_media_count = ( SELECT COUNT(likes_media.id) FROM likes_media WHERE media.id = likes_media.media_id ),
+  -- like_media_count = ( SELECT COUNT(likes_media.id) FROM likes_media WHERE media.id = likes_media.media_id ),
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
 ) COMMENT "Медиафайлы";
@@ -103,8 +101,7 @@ CREATE TABLE IF NOT EXISTS posts (
  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор строки",
  user_id INT UNSIGNED NOT NULL COMMENT "Ссылка на пользователя", 
  post TEXT NOT NULL COMMENT "Текст поста",
- -- likes_id INT UNSIGNED DEFAULT (0) COMMENT "Последний номер id таблицы лайков постов",
- like_post_count = ( SELECT COUNT(likes_post.id) FROM likes_post WHERE posts.id = likes_post.post_id ),
+ -- like_post_count = ( SELECT COUNT(likes_post.id) FROM likes_post WHERE posts.id = likes_post.post_id ),
  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки", 
  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
 );

@@ -2,6 +2,10 @@
 # TABLE STRUCTURE FOR: communities
 #
 
+DROP DATABASE IF EXISTS vk;
+CREATE DATABASE vk;
+USE vk;
+
 DROP TABLE IF EXISTS `communities`;
 
 CREATE TABLE `communities` (
